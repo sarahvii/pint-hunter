@@ -1,8 +1,12 @@
 import React from "react";
 
-const BreweryItem = () => {
+const BreweryItem = ({location, children}) => {
     return ( 
+        <>
         <h3>Brewery Item</h3>
+        <h4>{location}</h4>
+        <p>{children}</p>
+        </>
      );
 }
  
