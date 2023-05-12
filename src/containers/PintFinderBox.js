@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import BreweryList from "../components/BreweryList";
+import LocationForm from "../components/LocationForm";
 
 const PintFinderBox = () => {
 
@@ -25,10 +26,17 @@ const PintFinderBox = () => {
 
     )
 
+    const addBreweryItem = (submittedBreweryItem) => {
+        submittedBreweryItem.id = Date.now();
+        const updatedBreweryItems = [...breweryItems, submittedBreweryItem];
+        setBreweryItems(updatedBreweryItems);
+    }
+
         return ( 
             <>
             <h1>Pint Finder Box</h1>
             <BreweryList breweryItems={breweryItems}/>
+            <LocationForm onLocationSubmit={(breweryItem) => addBreweryItem(breweryItem)}/>
             </>
         );
 
