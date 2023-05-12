@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
+import PintFinderBox from './containers/PintFinderBox';
 
 function App() {
     const [greeting, setGreeting] = useState("hello pint hunter!");
@@ -67,6 +68,7 @@ function App() {
       <input id="new-item" type="text" value={newItem} onChange={handleItemInput}/>
       <input type="submit" value="Save New Item" />
     </form>
+    <PintFinderBox/>
     </>
   );
 }
