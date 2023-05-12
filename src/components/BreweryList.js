@@ -5,7 +5,7 @@ const BreweryList = ({breweryItems}) => {
 
     const breweryItemNodes = breweryItems.map(breweryItem => {
         return (
-            <BreweryItem location = {breweryItem.location}>{breweryItem.text}</BreweryItem>
+            <BreweryItem location = {breweryItem.location} key={breweryItem.id}>{breweryItem.text}</BreweryItem>
         );
     });
 
