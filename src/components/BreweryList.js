@@ -1,13 +1,19 @@
 import React from "react";
 import BreweryItem from "./BreweryItem";
 
-const BreweryList = () => {
+const BreweryList = ({breweryItems}) => {
+
+    const breweryItemNodes = breweryItems.map(breweryItem => {
+        return (
+            <BreweryItem location = {breweryItem.location}>{breweryItem.text}</BreweryItem>
+        );
+    });
+
+
     return ( 
         <>
         <h2>Brewery List</h2>
-        <BreweryItem location = "Glasgow">I love Glasgow!</BreweryItem>
-        <BreweryItem location = "London">I love London!</BreweryItem>
-        <BreweryItem location = "Manchester">I love MCR!</BreweryItem>
+        {breweryItemNodes}
         </>
      );
 }
