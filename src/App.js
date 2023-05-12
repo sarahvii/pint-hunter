@@ -23,7 +23,11 @@ function App() {
 
     const itemNodes = items.map((item, index) => {
       return (
-        <li key={index}><span>{item.name}</span></li>
+        <li key={index} className={item.isPurchased ? "purchased" : "not-purchased"}>
+          <span>{item.name}</span>
+          {item.isPurchased ? <span className="purchased">Purchased!</span> : 
+          <button onClick={() => purchaseItem(index)}>Buy Beer</button>}
+          </li>
       )
     })
 
@@ -37,6 +41,14 @@ function App() {
       copyItems.push({name: newItem, isPurchased: false})
       setItems(copyItems)
       setNewItem("")
+    }
+
+    const purchaseItem = (index) => {
+      const copyItems = [...items]
+      const updatedItem = {...copyItems[index]}
+      updatedItem.isPurchased = true
+      copyItems[index] = updatedItem
+      setItems(copyItems)
     }
 
 
